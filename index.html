@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search Engine</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="search">
+                <img src="https://media.istockphoto.com/id/1371126752/photo/connection-structure-science-background-3d-illustration.jpg?s=612x612&w=0&k=20&c=c_LkUpQ26k2xICz-kivv1Ago5oeSP-szmanhh9o7eN8=" />
+                <div class="inputArea">
+                    <div class="dropDown-container">
+                        <label for="api-select">Choose API:</label>
+                        <select id="api-select" class="dropDown-btn">
+                            <option value="unsplash">Unsplash</option>
+                            <option value="pexels">Pexels</option>
+                            <option value="pixabay">Pixabay</option>
+                        </select>
+                    </div>
+                    <form id="search-form">
+                        <div class="searchBox">
+                            <i class="fa-regular fa-image"></i>
+                            <input type="text" id="searchText" placeholder="Search anything here...">
+                            <button type="submit">
+                                <i class="fas fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </header>
+        <div class="gallery">
+            <h1>Image Search Engine</h1>
+            <div id="search-result" class="items"></div>
+            <button id="show-more-btn" class="loadMore">Show more</button>
+        </div>
+        <div class="search-history">
+            <button id="toggle-history-btn"><i class="fa-solid fa-clock"></i> History</button>
+            <ul id="search-history-list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

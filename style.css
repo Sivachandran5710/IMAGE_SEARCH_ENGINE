@@ -1,0 +1,348 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+ul,
+li {
+    list-style: none;
+    color: #000;
+}
+
+li {
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+}
+
+i {
+    color: #000;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.container .search {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .search img {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 1;
+}
+.container .search .inputArea {
+    color: #fff;
+    text-align: left; /* Align text to the left */
+    width: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.container .search .inputArea label {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left; /* Align label text to the left */
+}
+
+.container .search .inputArea .dropDown-container {
+    display: flex;
+    align-items: center; /* Vertically center align the dropdown and label */
+}
+
+.container .search .inputArea .dropDown-btn {
+    color: #000;
+    font-size: 18px;
+    width: 150px; /* Set a fixed width for the dropdown box */
+    border: none;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    margin-left: 10px; /* Space between the label and dropdown */
+}
+
+.container .search .inputArea .searchBox {
+    height: 55px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    background: #fff;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.container .search .inputArea .searchBox #searchText {
+    width: 80%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 15px;
+    font-size: 22px;
+}
+
+.container .search .inputArea .searchBox button {
+    width: 55px;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-magnifying-glass {
+    width: 55px;
+    color: #000;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 10px;
+}
+.container {
+    position: relative; /* Ensure this container is positioned relative to the page */
+}
+
+.gallery h1 {
+    position: absolute;
+    top: 10px; /* Adjust this value to move the title down from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the element horizontally */
+    font-size: 2rem;
+    color: #fff; /* Make sure the text color contrasts with the background */
+    z-index: 2; /* Ensure the title is on top of other elements */
+}
+
+
+.gallery .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.gallery .card {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+    flex: 1 1 calc(20% - 10px);
+    box-sizing: border-box;
+    margin: 5px;
+}
+
+.gallery .card img,
+.gallery .card video {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    z-index: 2;
+    position: relative;
+}
+
+.loadMore {
+    color: #78c1f3;
+    background: #fff;
+    margin: 50px 0;
+    font-size: 1rem;
+    padding: 15px 25px;
+    border-radius: 5px;
+}
+
+.notFound {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.notFound i {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.notFound h1,
+.notFound h2,
+.notFound p {
+    margin: 10px 0;
+}
+
+.gallery .card:hover .details {
+    bottom: 0;
+}
+
+.gallery .items .details {
+    position: absolute;
+    z-index: 4;
+    width: 100%;
+    bottom: -100px;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    justify-content: space-between;
+    transition: bottom 0.1s ease;
+    background: linear-gradient(to top, rgba(75, 207, 181, 0.7), transparent);
+}
+
+.gallery .items .photographer {
+    color: #fff;
+}
+
+.gallery .items .photographer button {
+    background: #fff;
+    font-size: 1.1rem;
+    padding: 3px 8px;
+}
+
+.popupView {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.popupView.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popupView .wrapper {
+    max-width: 80%;
+    max-height: 80%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.popupView .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.popupView .details .photographer {
+    display: flex;
+    align-items: center;
+}
+
+.popupView .details .photographer i {
+    margin-right: 5px;
+}
+
+.popupView .details button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.popupView .previewItem img,
+.popupView .previewItem video {
+    max-width: 100%;
+    max-height: 80vh; /* Constrain the image height */
+    width: auto;
+    height: auto;
+}
+
+.search-history {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 10; /* Ensures it stays on top */
+}
+
+.search-history button {
+    background: #ff3929; /* Updated to match your color scheme */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.search-history ul {
+    display: none; /* Initially hidden */
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    width: 200px; /* Fixed width to maintain alignment */
+    z-index: 10; /* Ensure the list stays on top */
+    right: 0; /* Aligns the dropdown to the right */
+}
+
+.search-history ul li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-history ul li:hover {
+    background: #f0f0f0;
+}
+
+/* Show the search history when the button is clicked */
+.search-history.active ul {
+    display: block;
+}
+.download-btn {
+    background: #fff;
+    border: none;
+    color: #78c1f3;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.download-btn i {
+    font-size: 16px;
+}
